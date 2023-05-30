@@ -30,6 +30,6 @@
 		"process-timeout":0
 	},
 	"require-dev": {
-	
+		"rmphp/var-damper": "1.0.x-dev"
 	}
 }

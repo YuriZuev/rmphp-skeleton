@@ -6,7 +6,6 @@ use Laminas\Diactoros\Response;
 use Laminas\Diactoros\ServerRequestFactory;
 use Rmphp\Kernel\App;
 use Rmphp\Kernel\ResponseEmitter;
-use Rmphp\Kernel\Utils;
 
 require_once dirname(__DIR__).'/vendor/autoload.php';
 
@@ -36,5 +35,5 @@ if(getenv("APP_MODE") == 'DEV' && in_array("Dev", $response->getHeader("App-Mode
 		"SERVER"=>$request->getServerParams()
 	]);
 	$app->syslogger()->dump("kernel", $app);
-	Utils::addShutdownInfo($app->syslogger()->getLogs());
+	addShutdownInfo($app->syslogger()->getLogs());
 }
