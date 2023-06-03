@@ -2,8 +2,6 @@
 
 namespace App\Common\Controllers;
 
-use Psr\Http\Message\ResponseInterface;
-
 abstract class AbstractPageController extends AbstractController {
 
 	/**

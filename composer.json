@@ -12,10 +12,10 @@
 		"monolog/monolog": "^2.3",
 		"php-di/php-di": "^6.3",
 		"symfony/dotenv": "^6.2",
-		"rmphp/kernel": "1.0.x-dev",
-		"rmphp/router": "1.0.x-dev",
-		"rmphp/content": "1.0.x-dev",
-		"rmphp/storage": "1.0.x-dev"
+		"rmphp/kernel": "^1.0",
+		"rmphp/router": "^1.0",
+		"rmphp/content": "^1.0",
+		"rmphp/storage": "^1.0"
 	},
     "autoload": {
         "psr-4": {
@@ -30,6 +30,6 @@
 		"process-timeout":0
 	},
 	"require-dev": {
-		"rmphp/var-damper": "1.0.x-dev"
+		"rmphp/var-damper": "^1.0"
 	}
 }
