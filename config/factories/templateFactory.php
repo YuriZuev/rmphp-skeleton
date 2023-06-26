@@ -1,2 +1,2 @@
 <?php
-return (new \Rmphp\Content\Content('public/web/main/sheet.html'))->setSubtemplePath('templates');
+return (new \Rmphp\Content\Content('templates/base.tpl'))->setSubtemplePath('templates');

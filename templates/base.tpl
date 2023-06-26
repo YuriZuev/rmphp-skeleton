@@ -5,15 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Rmphp - <?=$this->getPoint('title')?></title>
-    <link href="/web/main/css/style.css?1" rel="stylesheet">
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <link href="/assets/css/style.css?1" rel="stylesheet">
 </head>
 <body>
     <?=$this->getPoint('main')?>
-    <script type="text/javascript" src="/web/main/js/script.js?1"></script>
+    <script type="text/javascript" src="/assets/js/script.js?1"></script>
     <?=$this->getPoint('jsscript')?>
 </body>
 </html>

@@ -23,17 +23,7 @@ $response = $app->handler($request, (new Response())->withHeader("Content-Type",
 (new ResponseEmitter())->emit($response);
 
 
-if(getenv("APP_MODE") == 'DEV' && in_array("Dev", $response->getHeader("App-Mode"))){
-	$app->syslogger()->dump("request", $request);
-	$app->syslogger()->dump("response", $response);
-	$app->syslogger()->dump("globals", [
-		"ENV"=>$_ENV,
-		"GET"=>$request->getQueryParams(),
-		"POST"=>$request->getParsedBody(),
-		"COOKIE"=>$request->getCookieParams(),
-		"SESSION"=>$_SESSION ?? [],
-		"SERVER"=>$request->getServerParams()
-	]);
-	$app->syslogger()->dump("kernel", $app);
+if(getenv("APP_MODE") == 'DEV' || in_array("Dev", $response->getHeader("App-Mode"))){
+	$app->syslogger()->dump("Response", $response);
 	addShutdownInfo($app->syslogger()->getLogs());
 }
