@@ -7,8 +7,7 @@
 
 # Example:
 # ['key'=>'/', "action"=>"App\\Main\\Controllers\\IndexController", "method"=>"index"],
-# ['key'=>'/', 'router'=>'config/routes/main/collection.php'],
-# ['key'=>'/', 'router'=>'config/routes/main.json']
+# ['key'=>'/', 'router'=>'config/routes/main/routes.php'],
 # ['key'=>'/', 'router'=>'config/routes/main.yaml'],
 
 return [
