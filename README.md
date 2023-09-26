@@ -8,5 +8,5 @@ Stable version
 composer create-project rmphp/skeleton
 ```
 ```bash
-composer create-project rmphp/skeleton:"^1.0"
+composer create-project rmphp/skeleton:"^2.0"
 ```
