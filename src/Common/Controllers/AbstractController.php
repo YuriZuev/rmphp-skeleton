@@ -14,22 +14,6 @@ use Rmphp\Kernel\Main;
 abstract class AbstractController extends Main {
 
 	/**
-	 * @param string $name
-	 * @return mixed|void
-	 */
-	public function containerGet(string $name) {
-		try {
-			return $this->container()->get($name);
-		}
-		catch (NotFoundExceptionInterface $notFoundException){
-			$this->syslogger()->error($notFoundException->getMessage());
-		}
-		catch (ContainerExceptionInterface $containerException){
-			$this->syslogger()->error($containerException->getMessage());
-		}
-	}
-
-	/**
 	 * @param \Throwable $throwable
 	 * @param array $data
 	 * @return void
