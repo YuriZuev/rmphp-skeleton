@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Main\Controllers;
-use App\Common\Controllers\AbstractPageController;
+use App\Common\Controllers\AbstractController;
 use App\Common\Services\ServiceException;
 use Psr\Http\Message\ResponseInterface;
 
 
-class IndexController extends AbstractPageController {
+class IndexController extends AbstractController {
 
 	/**
 	 * @return bool|ResponseInterface
