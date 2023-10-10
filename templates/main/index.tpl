@@ -1,5 +1,5 @@
 <article>
     <main>
-        <h1>Hellow</h1>
+        <h1>Hello. Now is <?=$this->date?></h1>
     </main>
 </article>

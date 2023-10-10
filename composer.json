@@ -12,7 +12,7 @@
 		"monolog/monolog": "^2.3",
 		"php-di/php-di": "^6.3",
 		"symfony/dotenv": "^6.2",
-		"rmphp/kernel": "^2.0",
+		"rmphp/kernel": "^3.0",
 		"rmphp/router": "^1.0",
 		"rmphp/content": "^2.0",
 		"rmphp/storage": "^2.0",

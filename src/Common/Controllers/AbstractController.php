@@ -7,6 +7,7 @@ use Laminas\Diactoros\Response\JsonResponse;
 use Laminas\Diactoros\Response\RedirectResponse;
 use Laminas\Diactoros\Response\TextResponse;
 use Psr\Http\Message\ResponseInterface;
+use Rmphp\Foundation\Exceptions\AppException;
 use Rmphp\Kernel\Main;
 use Throwable;
 
@@ -88,6 +89,43 @@ abstract class AbstractController extends Main {
 		return new HtmlResponse($this->template()->getResponse(), $status, array_merge($this->globals()->response()->getHeaders(), $headers));
 	}
 
+	/**
+	 * @param string $point
+	 * @param string $string
+	 * @return void
+	 */
+	public function setTemplateValue(string $point, string $string) : void {
+		$this->template()->setValue($point, $string);
+	}
+
+	/**
+	 * @param string $point
+	 * @param string $string
+	 * @return void
+	 */
+	public function addTemplateValue(string $point, string $string) : void {
+		$this->template()->addValue($point, $string);
+	}
+
+	/**
+	 * @param string $point
+	 * @param string $subTempl
+	 * @param array $resource
+	 * @return void
+	 */
+	public function setSubtemplate(string $point, string $subTempl, array $resource = []) : void {
+		$this->template()->setSubtemple($point, $subTempl, $resource);
+	}
+
+	/**
+	 * @param string $point
+	 * @param string $subTempl
+	 * @param array $resource
+	 * @return void
+	 */
+	public function addSubtemplate(string $point, string $subTempl, array $resource = []) : void {
+		$this->template()->addSubtemple($point, $subTempl, $resource);
+	}
 
 	/**
 	 * @param string $point

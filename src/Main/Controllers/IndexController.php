@@ -16,7 +16,9 @@ class IndexController extends AbstractController {
 			$this->addHeader("App-Mode", "Dev");
 			$this->template()->setValue("title", "Главная");
 			$this->template()->setSubtemple("main", "main/index.tpl", [
+				"date" => (new \DateTime())->format('Y-m-d H:i:s')
 			]);
+			return $this->renderResponse();
 		}
 		catch(ServiceException $exception){}
 		return true;
