@@ -23,7 +23,7 @@ $response = $app->handler($request, (new Response())->withHeader("Content-Type",
 (new ResponseEmitter())->emit($response);
 
 
-if((getenv("APP_MODE") == 'DEV' && $response->getStatusCode() !== 200) || in_array("Dev", $response->getHeader("App-Mode"))){
+if(($response->getStatusCode() !== 200 && getenv("APP_MODE") == 'DEV') || in_array("Dev", $response->getHeader("App-Mode"))){
 	$app->syslogger()->dump("Response", $response);
 	addShutdownInfo($app->syslogger()->getLogs());
 }
