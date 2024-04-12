@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Main\Controllers;
-use App\Common\Controllers\AbstractController;
-use App\Common\Services\ServiceException;
+use App\Common\Controllers\AbstractPageController;
 use Psr\Http\Message\ResponseInterface;
 
 
-class IndexController extends AbstractController {
+class IndexController extends AbstractPageController {
 
 	/**
 	 * @return bool|ResponseInterface
@@ -18,10 +17,8 @@ class IndexController extends AbstractController {
 			$this->template()->setSubtemplate("main", "/main/index.tpl", [
 				"date" => (new \DateTime())->format('Y-m-d H:i:s')
 			]);
-			return $this->render();
 		}
-		catch(ServiceException $exception){}
-		return true;
+		catch(\Throwable $e){$error = $this->checkError($e);}
+		return $this->render();
 	}
-
 }
