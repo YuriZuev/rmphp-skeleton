@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>500</title>
+    <title>501</title>
 </head>
 <body>
-    <h1>Error 500</h1>
+    <h1>Error 501</h1>
 </body>
 </html>
