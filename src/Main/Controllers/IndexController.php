@@ -13,12 +13,12 @@ class IndexController extends AbstractController {
 	 */
 	public function index() : bool|ResponseInterface {
 		try {
-			$this->addHeader("App-Mode", "Dev");
+			//$this->addHeader("App-Mode", "Dev");
 			$this->template()->setValue("title", "Главная");
-			$this->template()->setSubtemple("main", "main/index.tpl", [
+			$this->template()->setSubtemplate("main", "/main/index.tpl", [
 				"date" => (new \DateTime())->format('Y-m-d H:i:s')
 			]);
-			return $this->renderResponse();
+			return $this->render();
 		}
 		catch(ServiceException $exception){}
 		return true;

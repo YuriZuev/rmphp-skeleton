@@ -6,7 +6,7 @@
         params: ""
 
 # Empty
-- key: "[any]"
+- key: "<@any>"
   routes:
       - action: "App\\Main\\Controllers\\IndexController"
         method: "emptyAction"

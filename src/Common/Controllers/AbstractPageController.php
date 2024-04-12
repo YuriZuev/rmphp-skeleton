@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Common\Controllers;
+
+use App\Common\Repository\RepositoryException;
+use App\Common\Services\DTOException;
+use App\Common\Services\ServiceException;
+use Exception;
+use Throwable;
+
+abstract class AbstractPageController extends AbstractController {
+
+	/**
+	 * @param Exception $exception
+	 * @param array $data
+	 * @return void
+	 */
+	public function exceptionPage(Exception $exception, array $data = []) : void {
+		$this->logException($exception, $data);
+		$this->syslogger()->warning($exception->getMessage()." on ".$exception->getFile().":".$exception->getLine(), $data);
+		$this->template()->setSubtemplate("main", "/templates/error/errpage.tpl", [
+			"errorText" => "<span style='color:red'>Error: ".$exception->getMessage()." (".$exception->getCode().")"."</span>"
+		]);
+	}
+
+	/**
+	 * @param Throwable $e
+	 * @return string
+	 */
+	public function checkError(Throwable $e) : string {
+		if($e instanceof DTOException || $e instanceof ServiceException || $e instanceof RepositoryException) return $e->getMessage();
+		($e instanceof Exception) ? $this->logException($e) : $this->logError($e);
+		return "Ошибка.  Дата и время: ".date("d-m-Y H:i:s");
+	}
+}

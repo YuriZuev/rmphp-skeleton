@@ -12,7 +12,7 @@ require_once dirname(__DIR__).'/vendor/autoload.php';
 (new Symfony\Component\Dotenv\Dotenv())->usePutenv()->loadEnv(dirname(__DIR__).'/.env');
 
 error_reporting(0); ini_set('display_errors','Off');
-if(getenv("APP_MODE") == 'DEV'){
+if(getenv("APP_MODE") == 'ERR'){
 	error_reporting(E_ALL); ini_set('display_errors','On');
 }
 
@@ -23,7 +23,7 @@ $response = $app->handler($request, (new Response())->withHeader("Content-Type",
 (new ResponseEmitter())->emit($response);
 
 
-if(getenv("APP_MODE") == 'DEV' && in_array("Dev", $response->getHeader("App-Mode"))){
+if(in_array("Dev", $response->getHeader("App-Mode"))){
 	$app->syslogger()->dump("Response", $response);
 	addShutdownInfo($app->syslogger()->getLogs());
 }

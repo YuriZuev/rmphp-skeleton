@@ -4,7 +4,7 @@ namespace App\Common\Services;
 
 use Rmphp\Kernel\Main;
 
-class AbstractService extends Main {
+abstract class AbstractService extends Main {
 
 
 }

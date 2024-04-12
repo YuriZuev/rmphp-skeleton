@@ -14,8 +14,8 @@
 		"symfony/dotenv": "^6.2",
 		"rmphp/kernel": "^3.0",
 		"rmphp/router": "^1.0",
-		"rmphp/content": "^2.0",
-		"rmphp/storage": "^2.0",
+		"rmphp/content": "^3.0",
+		"rmphp/storage": "^3.0",
 		"rmphp/session": "^1.0",
 		"rmphp/cache-file": "^1.0"
 	},
