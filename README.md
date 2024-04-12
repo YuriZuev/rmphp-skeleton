@@ -9,5 +9,5 @@ composer create-project rmphp/skeleton
 ```
 
 ```bash
-composer create-project rmphp/skeleton:"^3.0"
+composer create-project rmphp/skeleton:"^4.0"
 ```
