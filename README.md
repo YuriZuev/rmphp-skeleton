@@ -5,9 +5,9 @@
 Stable version
 
 ```bash
-composer create-project rmphp/skeleton
+composer create-project rmphp/skeleton project-name
 ```
 
 ```bash
-composer create-project rmphp/skeleton:"^4.0"
+composer create-project rmphp/skeleton:"^4.0" project-name
 ```
