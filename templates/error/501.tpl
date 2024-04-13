@@ -7,7 +7,7 @@
     <title>501 Not Implemented</title>
     <style>
         body{
-            font-family: Arimo, sans-serif;
+            font-family: Arial, sans-serif;
             font-size: 15px;
             margin: 0;
             padding: 0;

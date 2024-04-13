@@ -1,4 +1,10 @@
-body{font-family: Arimo, sans-serif; font-size: 15px; margin: 0; padding: 0;}
+body{
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    margin: 0;
+    padding: 0;
+    background:#d4e5d8;
+}
 * {
     scrollbar-width: thin;
     scrollbar-color: #CCC #FFF
@@ -16,4 +22,19 @@ body{font-family: Arimo, sans-serif; font-size: 15px; margin: 0; padding: 0;}
 }
 
 h1{padding: 0 30px}
+
+.main-block{
+    display: flex;
+    align-items: center;
+    height: 50vh;
+    flex-direction: column;
+    justify-content: center;
+    color:#888;
+}
+.main-block__header{
+    font-size: 70px;
+}
+.main-block__text{
+    font-size: 30px;
+}
 
