@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Common\Controllers;
+namespace Base\Controllers;
 
-use App\Common\Repository\RepositoryException;
-use App\Common\Services\DTOException;
-use App\Common\Services\ServiceException;
+use Base\Repository\RepositoryException;
+use Base\Services\DTOException;
+use Base\Services\ServiceException;
 use Exception;
 use Throwable;
 

@@ -4,7 +4,7 @@
  * User: Zuev Yuri
  */
 
-namespace App\Common\Domain;
+namespace Base\Domain;
 
 abstract class AbstractObject {
 
