@@ -21,8 +21,8 @@
 	},
     "autoload": {
         "psr-4": {
-	        "Base\\": "application",
-            "App\\": "src"
+	        "App\\": "src",
+	        "Base\\": "application"
         }
     },
 	"scripts": {
