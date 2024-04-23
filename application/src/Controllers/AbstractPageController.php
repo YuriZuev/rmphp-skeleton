@@ -2,7 +2,6 @@
 
 namespace Base\Controllers;
 
-use Base\Repository\RepositoryException;
 use Base\Services\DTOException;
 use Base\Services\ServiceException;
 use Exception;
