@@ -2,7 +2,6 @@
 
 namespace Base\Services;
 
-use Exception;
 use ReflectionClass;
 
 abstract class AbstractDTO {
