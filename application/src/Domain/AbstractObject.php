@@ -6,11 +6,14 @@
 
 namespace Base\Domain;
 
+use ReflectionClass;
+
 abstract class AbstractObject {
 
 	/**
 	 * @param array $data
 	 * @return static
+	 * @throws DomainException
 	 */
 	public static function fromData(array $data) : static {
 		$self = new static();
@@ -20,24 +23,23 @@ abstract class AbstractObject {
 
 	/**
 	 * @param array $data
-	 * @return $this
+	 * @return void
+	 * @throws DomainException
 	 */
-	public function setProperties(array $data) : self {
-		$propArray = array_keys(get_class_vars(get_class($this)));
-		foreach ($propArray as $propName)
-		{
-			$propNameSnakeCase = strtolower(preg_replace("'([A-Z])'", "_$1", $propName));
+	public function setProperties(array $data) : void {
+		$class = new ReflectionClass(static::class);
+		foreach ($class->getProperties() as $property) {
+			$propertyNameSnakeCase = strtolower(preg_replace("'([A-Z])'", "_$1", $property->getName()));
+			// data[propertyName] ?? data[property_name] ?? null
+			$value = $data[$property->getName()] ?? $data[$propertyNameSnakeCase] ?? null;
 
-			// если в переданном массиве ключ и свойство совпадают optionId = optionId
-			if(isset($data[$propName])) {
-				$this->{$propName} = (method_exists($this, 'set'.ucfirst($propName))) ? $this->{'set'.ucfirst($propName)}($data[$propName]) : $data[$propName];
-			}
-			// если свойство в снэйккесе совподает с ключем в массиве option_id = optionId
-			elseif(isset($data[$propNameSnakeCase])) {
-				$this->{$propName} = (method_exists($this, 'set'.ucfirst($propName))) ? $this->{'set'.ucfirst($propName)}($data[$propNameSnakeCase]) : $data[$propNameSnakeCase];
-			}
+			// если есть внутренний метод (приоритетная обработка)
+			if($class->hasMethod('set'.ucfirst($property->getName()))) $this->{'set'.ucfirst($property->getName())}($value);
+			// Если тип свойства класс (valueObject)
+			elseif($property->hasType() && class_exists($property->getType()->getName())) $this->{$property->getName()} = new ($property->getType()->getName())($value);
+			// если значения не пустое
+			elseif(isset($value)) $this->{$property->getName()} = $value;
 		}
-		return $this;
 	}
 
 	/**
@@ -48,14 +50,19 @@ abstract class AbstractObject {
 		$objectData = get_object_vars($this);
 		foreach ($objectData as $fieldName => $value)
 		{
+			// to option_id
 			$fieldNameSnakeCase = strtolower(preg_replace("'([A-Z])'", "_$1", $fieldName));
 
-			// если есть внутренний метод
+			// если есть внутренний метод (приоритетная обработка)
 			if(method_exists($this, 'get'.ucfirst($fieldName))) {
 				$out[$fieldNameSnakeCase] = $this->{'get'.ucfirst($fieldName)}($value);
 			}
-			// если есть callable функция
-			elseif(isset($method) && !is_array($value)) {
+			// если тип свойства класс (valueObject)
+			elseif($value instanceof ValueObjectInterface && null !== $value->get()) {
+				$out[$fieldNameSnakeCase] = $value->get();
+			}
+			// если передана callable функция через которую нужно пропустить все элементы
+			elseif(isset($method) && !is_array($value) && !is_object($value)) {
 				$out[$fieldNameSnakeCase] = $method($value);
 			}
 			// если это логическое значение
@@ -78,5 +85,4 @@ abstract class AbstractObject {
 		}
 		return $out ?? [];
 	}
-
 }
