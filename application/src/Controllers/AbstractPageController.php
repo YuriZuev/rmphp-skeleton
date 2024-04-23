@@ -28,8 +28,8 @@ abstract class AbstractPageController extends AbstractController {
 	 * @return string
 	 */
 	public function checkError(Throwable $e) : string {
-		if($e instanceof DTOException || $e instanceof ServiceException || $e instanceof RepositoryException) return $e->getMessage();
 		($e instanceof Exception) ? $this->logException($e) : $this->logError($e);
+		if($e instanceof DTOException || $e instanceof ServiceException) return $e->getMessage();
 		return "Ошибка.  Дата и время: ".date("d-m-Y H:i:s");
 	}
 }
