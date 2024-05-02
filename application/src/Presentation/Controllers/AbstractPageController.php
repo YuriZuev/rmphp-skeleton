@@ -18,7 +18,7 @@ abstract class AbstractPageController extends AbstractController {
 	public function exceptionPage(Exception $exception, array $data = []) : void {
 		$this->logException($exception, $data);
 		$this->syslogger()->warning($exception->getMessage()." on ".$exception->getFile().":".$exception->getLine(), $data);
-		$this->template()->setSubtemplate("main", "/templates/error/errpage.tpl", [
+		$this->template()->setSubtemplate("main", "/error/errpage.tpl", [
 			"errorText" => "<span style='color:red'>Error: ".$exception->getMessage()." (".$exception->getCode().")"."</span>"
 		]);
 	}
