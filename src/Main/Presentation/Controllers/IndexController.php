@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Main\Controllers;
-use Base\Controllers\AbstractPageController;
+namespace App\Main\Presentation\Controllers;
+use Base\Presentation\Controllers\AbstractPageController;
 use Psr\Http\Message\ResponseInterface;
 
 
@@ -14,7 +14,7 @@ class IndexController extends AbstractPageController {
 		try {
 			//$this->addHeader("App-Mode", "Dev");
 			$this->template()->setValue("title", "Главная");
-			$this->template()->setSubtemplate("main", "/main/index.tpl", [
+			$this->template()->setSubtemplate("main", "@main/index.tpl", [
 				"date" => (new \DateTime())->format('Y-m-d H:i:s')
 			]);
 		}

@@ -1,10 +1,11 @@
 <?php
 
-namespace Base\Repository;
+
+namespace Base\Application;
 
 use Throwable;
 
-class RepositoryException extends \Exception {
+class ApplicationException extends \Exception {
 
 	public array $data;
 

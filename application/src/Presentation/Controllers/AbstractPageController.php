@@ -1,10 +1,10 @@
 <?php
 
-namespace Base\Controllers;
+namespace Base\Presentation\Controllers;
 
+use Base\Application\ApplicationException;
+use Base\Application\DTOException;
 use Base\Domain\DomainException;
-use Base\Services\DTOException;
-use Base\Services\ServiceException;
 use Exception;
 use Throwable;
 
@@ -29,7 +29,7 @@ abstract class AbstractPageController extends AbstractController {
 	 */
 	public function checkError(Throwable $e) : string {
 		($e instanceof Exception) ? $this->logException($e) : $this->logError($e);
-		if($e instanceof DTOException || $e instanceof DomainException || $e instanceof ServiceException) return $e->getMessage();
+		if($e instanceof DTOException || $e instanceof DomainException || $e instanceof ApplicationException) return $e->getMessage();
 		return "Ошибка.  Дата и время: ".date("d-m-Y H:i:s");
 	}
 }

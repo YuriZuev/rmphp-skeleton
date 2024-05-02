@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Base\Services;
+namespace Base\Application;
 
 use Throwable;
 
-class ServiceException extends \Exception {
+class DTOException extends \Exception {
 
 	public array $data;
 
