@@ -2,12 +2,13 @@
 
 use DI\ContainerBuilder;
 
-$containerDir = (getenv("CONTAINER_DIR")) ?: "application/config/container";
-$containerCache = (getenv("CONTAINER_CACHE"))?:"var/cache/container";
+$containerIni = (getenv("CONTAINER_INI")) ?: "application/config/container.php";
+$containerCache = (getenv("CONTAINER_CACHE")) ?: "var/cache/container";
 
-$dependencies = glob(dirname(__DIR__,3)."/".$containerDir."/*.php");
+$dependencies = require dirname(__DIR__,3).'/'.$containerIni;
+
 $dependenciesCollection = array_map(function ($dependenciesFile){
-	return require $dependenciesFile;
+	return require dirname(__DIR__,3)."/".$dependenciesFile;
 }, $dependencies);
 
 try {
