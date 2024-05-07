@@ -4,7 +4,6 @@ namespace App\Main\Presentation\Controllers;
 use Base\Presentation\Controllers\AbstractPageController;
 use Psr\Http\Message\ResponseInterface;
 
-
 class IndexController extends AbstractPageController {
 
 	/**
