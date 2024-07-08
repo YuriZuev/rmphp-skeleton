@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Main\Presentation\Controllers;
-use Base\Presentation\Controllers\AbstractPageController;
+namespace App\Main\Infrastructure\Controllers;
+use Base\Infrastructure\Controllers\AbstractPageController;
 use Psr\Http\Message\ResponseInterface;
 
 class IndexController extends AbstractPageController {

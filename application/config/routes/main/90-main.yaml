@@ -1,13 +1,13 @@
 # Index
 - key: "/"
   routes:
-      - action: "App\\Main\\Presentation\\Controllers\\IndexController"
+      - action: "App\\Main\\Infrastructure\\Controllers\\IndexController"
         method: "index"
         params: ""
 
 # Empty
 - key: "<@any>"
   routes:
-      - action: "App\\Main\\Presentation\\Controllers\\IndexController"
+      - action: "App\\Main\\Infrastructure\\Controllers\\IndexController"
         method: "emptyAction"
         params: ""

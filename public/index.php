@@ -11,12 +11,16 @@ require_once dirname(__DIR__).'/vendor/autoload.php';
 
 (new Symfony\Component\Dotenv\Dotenv())->usePutenv()->loadEnv(dirname(__DIR__).'/.env');
 
-error_reporting(0); ini_set('display_errors','Off');
+if(getenv("APP_MODE") == 'DEBUG'){
+	error_reporting(E_ALL); ini_set('display_errors','On');
+} else {
+	error_reporting(0); ini_set('display_errors','Off');
+}
 
 $request = ServerRequestFactory::fromGlobals();
 
 $app = new App();
-$response = $app->handler($request, (new Response())->withHeader("Content-Type", "text/html; charset=utf-8"));
+$response = $app->handler($request, new Response());
 (new ResponseEmitter())->emit($response);
 
 if(($response->getStatusCode() !== 200 && getenv("APP_MODE") == 'DEV') || in_array("Dev", $response->getHeader("App-Mode"))){

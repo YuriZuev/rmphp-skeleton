@@ -1,6 +1,6 @@
 <?php
 
-namespace Base\Presentation\Controllers;
+namespace Base\Infrastructure\Controllers;
 
 use Base\Application\ApplicationException;
 use Base\Application\DTOException;
