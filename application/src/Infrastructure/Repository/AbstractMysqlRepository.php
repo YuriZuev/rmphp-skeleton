@@ -7,6 +7,8 @@ use Rmphp\Storage\Mysql\MysqlStorageInterface;
 
 abstract class AbstractMysqlRepository extends AbstractRepository {
 
+	public const DEBUG = false;
+
 	public function __construct(
 		public readonly MysqlStorageInterface $mysql
 	) {}
@@ -21,7 +23,7 @@ abstract class AbstractMysqlRepository extends AbstractRepository {
 		$in = $this->getProperties($object, function ($value){
 			return (is_string($value)) ? $this->mysql->escapeStr($value) : $value;
 		});
-		//dd($object, $in);
+		if(static::DEBUG) dd($object, $in, $table);
 		try {
 			if (!empty($object->getId()) && !empty($this->mysql->findById($table, $object->getId()))) {
 				$this->mysql->updateById($table, $in, $object->getId());
@@ -32,8 +34,4 @@ abstract class AbstractMysqlRepository extends AbstractRepository {
 			}
 		} catch (\Throwable $throwable) {throw new RepositoryException($throwable->getMessage());}
 	}
-
-
-
-
 }

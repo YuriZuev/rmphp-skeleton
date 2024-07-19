@@ -9,6 +9,5 @@
 # ['key'=>'/', 'router'=>[]],
 
 return [
-	['key'=>'/', 'router'=>'application/config/routes/main/routes.php'],
+	['key'=>'/', 'router'=>'application/config/routes/routes.php'],
 ];
- 
