@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Main\Infrastructure\Controllers;
+namespace App\Infrastructure\Controllers;
 use Base\Infrastructure\Controllers\AbstractPageController;
 use Psr\Http\Message\ResponseInterface;
 
@@ -13,11 +13,12 @@ class IndexController extends AbstractPageController {
 		try {
 			//$this->addHeader("App-Mode", "Dev");
 			$this->template()->setValue("title", "Главная");
-			$this->template()->setSubtemplate("main", "@main/index.tpl", [
-				"date" => (new \DateTime())->format('Y-m-d H:i:s')
-			]);
 		}
 		catch(\Throwable $e){$error = $this->checkError($e);}
-		return $this->render();
+
+		return $this->renderResponse("main", "@main/index.tpl", [
+			"date" => (new \DateTime())->format('Y-m-d H:i:s'),
+			"error" => $error ?? null
+		]);
 	}
 }
