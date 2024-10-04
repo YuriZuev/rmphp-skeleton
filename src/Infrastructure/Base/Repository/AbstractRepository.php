@@ -6,9 +6,9 @@
  * Time: 13:06
  */
 
-namespace Base\Infrastructure\Repository;
+namespace App\Infrastructure\Base\Repository;
 
-use Base\Domain\ValueObjectInterface;
+use App\Infrastructure\Base\Domain\ValueObjectInterface;
 use ReflectionClass;
 use ReflectionException;
 

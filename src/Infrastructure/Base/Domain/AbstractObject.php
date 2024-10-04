@@ -4,7 +4,7 @@
  * User: Zuev Yuri
  */
 
-namespace Base\Domain;
+namespace App\Infrastructure\Base\Domain;
 
 abstract class AbstractObject implements EntityInterface {
 

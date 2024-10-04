@@ -6,7 +6,7 @@
  * Time: 3:58
  */
 
-namespace Base\Domain;
+namespace App\Infrastructure\Base\Domain;
 
 interface ValueObjectInterface {
 

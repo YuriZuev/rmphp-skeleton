@@ -1,6 +1,6 @@
 <?php
 
-namespace Base\Application;
+namespace App\Infrastructure\Base\Application;
 
 use ReflectionClass;
 
