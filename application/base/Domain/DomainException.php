@@ -1,11 +1,10 @@
 <?php
 
-
-namespace App\Infrastructure\Base\Application;
+namespace Base\Domain;
 
 use Throwable;
 
-class ApplicationException extends \Exception {
+class DomainException extends \Exception {
 
 	public array $data;
 

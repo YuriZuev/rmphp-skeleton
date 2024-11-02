@@ -6,7 +6,7 @@
  * Time: 3:58
  */
 
-namespace App\Infrastructure\Base\Domain;
+namespace Base\Domain;
 
 interface EntityInterface {
 

@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Infrastructure\Base\Repository;
+
+namespace Base\Application;
 
 use Throwable;
 
-class RepositoryException extends \Exception {
+class DTOException extends \Exception {
 
 	public array $data;
 

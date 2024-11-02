@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure\Base\Controllers;
+namespace Base\Controllers;
 
 class NotFoundException extends \Exception {
 

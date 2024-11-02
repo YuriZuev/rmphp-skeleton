@@ -1,0 +1,16 @@
+<?php
+
+$cashFile = preg_replace("'.application.*$'",'', __DIR__).'/var/routes/'.md5(__FILE__);
+
+if(getenv("APP_MODE") == "PROD" && file_exists($cashFile)){
+	return unserialize(file_get_contents($cashFile));
+} else {
+	$routesCollection = array_map(function ($routesFile){
+		return file_get_contents($routesFile).PHP_EOL;
+	}, glob(__DIR__."/{*.yaml}", GLOB_BRACE));
+
+	$routes = yaml_parse(implode($routesCollection));
+	if (!is_dir(dirname($cashFile))) mkdir(dirname($cashFile), 0777, true);
+	file_put_contents($cashFile, serialize($routes));
+	return $routes;
+}

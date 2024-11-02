@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Infrastructure\Base\Controllers;
+namespace Base\Controllers;
 
-use App\Infrastructure\Base\Application\ApplicationException;
-use App\Infrastructure\Base\Application\DTOException;
-use App\Infrastructure\Base\Domain\DomainException;
+use Base\Application\ApplicationException;
+use Base\Application\DTOException;
+use Base\Domain\DomainException;
 use Exception;
 use Throwable;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Infrastructure\Base\Repository;
+namespace Base\Repository;
 
-use App\Infrastructure\Base\Domain\EntityInterface;
+use Base\Domain\EntityInterface;
 use Rmphp\Storage\Mysql\MysqlStorageInterface;
 
 abstract class AbstractMysqlRepository extends AbstractRepository {
