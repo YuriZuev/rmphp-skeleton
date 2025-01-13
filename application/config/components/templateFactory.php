@@ -1,4 +1,4 @@
 <?php
 return (new \Rmphp\Content\Content('/templates/base.tpl'))->setSubtemplatePath('/templates/')->setSubtemplatePathAlias([
-	"main" => "/src/Infrastructure/templates",
+	"main" => "/src/Infrastructure/subtemplates",
 ]);
