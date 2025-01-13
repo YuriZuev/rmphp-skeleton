@@ -8,6 +8,6 @@
 # Empty
 - key: "<@any>"
   routes:
-      - action: "App\\nfrastructure\\Controllers\\IndexController"
+      - action: "App\\Infrastructure\\Controllers\\IndexController"
         method: "emptyAction"
         params: ""
