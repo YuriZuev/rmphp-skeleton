@@ -7,6 +7,27 @@ use ReflectionClass;
 abstract class AbstractDTO {
 
 	/**
+	 * @param object $data
+	 * @return static
+	 */
+	static function fromObject(object $data) : static {
+		return static::fromArray(get_object_vars($data));
+	}
+
+
+	/**
+	 * @param array|object ...$data
+	 * @return static
+	 */
+	static function fromData(array|object ...$data) : static {
+		$array = array_map(function($item) {
+			return (is_object($item)) ? get_object_vars($item) : $item;
+		}, $data);
+		return static::fromArray(array_merge(...$array));
+	}
+
+
+	/**
 	 * @param array $data
 	 * @return static
 	 */
@@ -24,4 +45,5 @@ abstract class AbstractDTO {
 		}
 		return $self;
 	}
+
 }
