@@ -2,48 +2,40 @@
 
 namespace Base\Application;
 
+use Exception;
 use ReflectionClass;
+use Rmphp\Storage\Component\AbstractDataObject;
 
-abstract class AbstractDTO {
-
-	/**
-	 * @param object $data
-	 * @return static
-	 */
-	static function fromObject(object $data) : static {
-		return static::fromArray(get_object_vars($data));
-	}
-
+abstract class AbstractDTO extends AbstractDataObject {
 
 	/**
 	 * @param array|object ...$data
 	 * @return static
+	 * @throws Exception
 	 */
-	static function fromData(array|object ...$data) : static {
+	public static function fromData(array|object ...$data) : static {
 		$array = array_map(function($item) {
 			return (is_object($item)) ? get_object_vars($item) : $item;
 		}, $data);
-		return static::fromArray(array_merge(...$array));
+		return self::fromArray(array_merge(...$array));
+	}
+
+	/**
+	 * @param object $data
+	 * @return static
+	 * @throws Exception
+	 */
+	public static function fromObject(object $data) : static {
+		return self::fromArray(get_object_vars($data));
 	}
 
 
 	/**
 	 * @param array $data
 	 * @return static
+	 * @throws Exception
 	 */
-	static function fromArray(array $data) : static {
-		$class = new ReflectionClass(static::class);
-		$self = new static();
-		foreach ($class->getProperties() as $property) {
-			$propertyNameSnakeCase = strtolower(preg_replace("'([A-Z])'", "_$1", $property->getName()));
-			// data[propertyName] ?? data[property_name] ?? null
-			$value = $data[$property->getName()] ?? $data[$propertyNameSnakeCase] ?? null;
-			// если есть внутренний метод (приоритетная обработка)
-			if($class->hasMethod('set'.ucfirst($property->getName()))) $self->{'set'.ucfirst($property->getName())}($value);
-			// прямое присовение по умолчанию
-			elseif(isset($value)) $self->{$property->getName()} = $value;
-		}
-		return $self;
+	public static function fromArray(array $data) : static {
+		return self::fillObject(new ReflectionClass(static::class), new static(), $data);
 	}
-
 }
