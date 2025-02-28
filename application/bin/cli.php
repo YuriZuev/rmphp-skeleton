@@ -25,7 +25,7 @@ if(str_contains($argv[1], ':')) {
 				if($response instanceof ResponseInterface) (new ResponseEmitter())->emit($response);
 				elseif(!is_bool($response)) echo $response;
 			}
-		} catch(\DI\DependencyException|\DI\NotFoundException $throwable){
+		} catch(Throwable $throwable){
 			$logger->error($throwable->getMessage()." on ".$throwable->getFile().":".$throwable->getLine());
 		}
 	}
