@@ -5,9 +5,9 @@
 
 # Example:
 # ['key'=>'/', "action"=>"App\\Main\\Controllers\\IndexController", "method"=>"index"],
-# ['key'=>'/', 'router'=>'application/config/routes/main/routes.php'],
+# ['key'=>'/', 'router'=>'config/routes/main/routes.php'],
 # ['key'=>'/', 'router'=>[]],
 
 return [
-	['key'=>'/', 'router'=>'application/config/routes/routes.php'],
+	['key'=>'/', 'router'=>'config/routes/routes.php'],
 ];

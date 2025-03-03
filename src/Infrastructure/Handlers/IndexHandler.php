@@ -8,7 +8,7 @@
 
 namespace App\Infrastructure\Handlers;
 
-use Base\Controllers\AbstractHandler;
+use Base\Handlers\AbstractHandler;
 use Psr\Http\Message\ResponseInterface;
 
 class IndexHandler extends AbstractHandler {

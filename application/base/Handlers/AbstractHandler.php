@@ -1,6 +1,6 @@
 <?php
 
-namespace Base\Controllers;
+namespace Base\Handlers;
 
 use Laminas\Diactoros\Response\HtmlResponse;
 use Laminas\Diactoros\Response\JsonResponse;
