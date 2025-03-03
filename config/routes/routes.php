@@ -1,6 +1,6 @@
 <?php
 
-$cashFile = preg_replace("'.config.*$'",'', __DIR__).'/var/routes/'.md5(__FILE__);
+$cashFile = dirname(__DIR__,2).'/var/routes/'.md5(__FILE__);
 
 if(getenv("APP_MODE") == "PROD" && file_exists($cashFile)){
 	return unserialize(file_get_contents($cashFile));
