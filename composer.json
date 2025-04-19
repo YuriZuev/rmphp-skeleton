@@ -5,7 +5,7 @@
 	"minimum-stability": "dev",
 	"prefer-stable" : true,
 	"require": {
-		"php": "^8.1",
+		"php": "^8.3",
 		"ext-json": "*",
 		"ext-yaml": "*",
 		"laminas/laminas-diactoros": "^2.5",
@@ -17,7 +17,7 @@
 		"rmphp/router": "^2.0",
 		"rmphp/session": "^1.1",
 		"rmphp/redis": "^1.0",
-		"rmphp/storage": "^9.0",
+		"rmphp/storage": "^10.0",
 		"symfony/dotenv": "^6.2"
 	},
     "autoload": {
