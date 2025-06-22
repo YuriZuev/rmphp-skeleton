@@ -17,7 +17,7 @@
 		"rmphp/router": "^2.0",
 		"rmphp/session": "^1.1",
 		"rmphp/redis": "^1.0",
-		"rmphp/storage": "^10.0",
+		"rmphp/storage": "^12.0",
 		"symfony/dotenv": "^6.2"
 	},
     "autoload": {
