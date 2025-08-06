@@ -8,17 +8,17 @@
 		"php": "^8.3",
 		"ext-json": "*",
 		"ext-yaml": "*",
-		"laminas/laminas-diactoros": "^2.5",
-		"monolog/monolog": "^2.3",
-		"php-di/php-di": "^6.3",
-		"ramsey/uuid": "^4.7",
-		"rmphp/content": "^4.0",
-		"rmphp/kernel": "^6.0",
-		"rmphp/router": "^2.0",
+		"laminas/laminas-diactoros": "^2.26",
+		"monolog/monolog": "^2.10",
+		"php-di/php-di": "^6.4",
+		"ramsey/uuid": "^4.9",
+		"rmphp/content": "^4.1",
+		"rmphp/kernel": "^6.1",
+		"rmphp/router": "^2.1",
 		"rmphp/session": "^1.1",
 		"rmphp/redis": "^1.0",
 		"rmphp/storage": "^12.0",
-		"symfony/dotenv": "^6.2"
+		"symfony/dotenv": "^6.4"
 	},
     "autoload": {
         "psr-4": {
@@ -34,7 +34,7 @@
 		"process-timeout":0
 	},
 	"require-dev": {
-		"symfony/var-dumper": "^5.3",
-		"rmphp/var-damper": "^1.0"
+		"symfony/var-dumper": "^5.4",
+		"rmphp/var-damper": "^1.1"
 	}
 }
